@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import PhotoContainer from './components/PhotoContainer/PhotoContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      photos: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://www.mocky.io/v2/5ecb5c353000008f00ddd5a0')
+      .then(response => {
+        console.log('response', response);
+        if (!response.ok) {
+          throw Error("Error occures when fetching the API");
+        }
+
+        return response.json()
+
+          .then(allData => {
+            this.setState({ photos: allData });
+          })
+
+          .catch(err => {
+            throw Error(err.message);
+          });
+
+      }
+      );
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <PhotoContainer photos={this.state.photos} />
+      </div>
+    )
+  }
 }
 
-export default App;

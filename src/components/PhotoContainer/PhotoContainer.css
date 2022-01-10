@@ -1,0 +1,9 @@
+.gallery {
+    display        : flex;
+    flex-wrap      : wrap;
+    align-items    : stretch;
+    justify-content: space-around;
+    flex-direction : column;
+    max-height     : 200vh;
+  }
+  
