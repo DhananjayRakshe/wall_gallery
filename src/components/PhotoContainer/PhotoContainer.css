@@ -1,9 +1,48 @@
 .gallery {
-    display        : flex;
-    flex-wrap      : wrap;
-    align-items    : stretch;
-    justify-content: space-around;
-    flex-direction : column;
-    max-height     : 200vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-direction: column;
+  max-height: 200vh;
+}
+
+/* Media Query for Mobile Devices */
+
+@media (max-width: 480px) {
+  .gallery {
+    max-height: 100vh;
   }
-  
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .gallery {
+    max-height: 100vh;
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gallery {
+    max-height: 100vh;
+  }
+}
+
+/* Media Query for Laptops and Desktops */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .gallery {
+    max-height: 100vh;
+  }
+}
+
+/* Media Query for Large screens */
+
+@media (min-width: 1281px) {
+  .gallery {
+    max-height: 200vh;
+  }
+}
